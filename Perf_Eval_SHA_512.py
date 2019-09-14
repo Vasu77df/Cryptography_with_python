@@ -1,4 +1,3 @@
-
 import timeit
 
 setup_code = '''
@@ -9,7 +8,7 @@ from cryptography.hazmat.primitives import hashes
 '''
 
 evaluation_code = '''
-digest = hashes.Hash(hashes.SHA256(), backend=default_backend())
+digest = hashes.Hash(hashes.SHA512(), backend=default_backend())
 digest.update(bytes(256*1000*1000))
 digest.finalize()
 '''
