@@ -22,13 +22,12 @@ def SHA_256(message):
 if __name__ == "__main__":
     byte_plaintext = bytes(256*1000*100)
     digest = SHA_256(byte_plaintext) 
-    digest_hex = digest.hex() # Converting the digest returned in bytes format to hexadecimal format 
-    print ("Plaintext entered:{}".format(byte_plaintext))
+    digest_hex = digest.hex() # Converting the digest returned in bytes format to hexadecimal format s
     print("Message digest after Hashing in bytes: {}".format(digest))
     print("Message digest after SHA256 hashing in hexadecimal is: {} ".format(digest_hex))
     execution_time = timeit.timeit(setup=setup_code, stmt=evaluation_code, number=1)
-    print("Time taken for Hashing the plaintext once: {}".format(execution_time))
     total_time = timeit.timeit(setup=setup_code, stmt=evaluation_code, number=10)
-    print("Time taken after running the Hash function 10 times: {}".format(total_time))
+    print("Time taken for Hashing the plaintext once: {} seconds".format(execution_time))
+    print("Time taken after running the Hash function 10 times: {} seconds".format(total_time))
     performance = 256/total_time
-    print("The speed is {} MB/s".format(performance))
+    print("The performance of the hashing function is {} MB/s".format(performance))
