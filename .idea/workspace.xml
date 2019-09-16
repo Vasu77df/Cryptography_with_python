@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="88e3f443-72ab-4689-a8e4-40272fc28410" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Perf_Eval_SHA_512.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Perf_Eval_SHA_256.py" beforeDir="false" afterPath="$PROJECT_DIR$/Perf_Eval_SHA_256.py" afterDir="false" />
-    </list>
+    <list default="true" id="88e3f443-72ab-4689-a8e4-40272fc28410" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568471097482</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="evaluation of SHA512">
+      <created>1568472169783</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1568472169783</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -194,6 +197,7 @@
     <MESSAGE value="trial of sha512" />
     <MESSAGE value="changes in sha512" />
     <MESSAGE value="evaluation of SHA256" />
-    <option name="LAST_COMMIT_MESSAGE" value="evaluation of SHA256" />
+    <MESSAGE value="evaluation of SHA512" />
+    <option name="LAST_COMMIT_MESSAGE" value="evaluation of SHA512" />
   </component>
 </project>

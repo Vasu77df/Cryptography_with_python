@@ -4,8 +4,6 @@ import timeit
 setup_code = '''
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import hashes
-
-
 '''
 
 evaluation_code = '''
