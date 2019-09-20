@@ -6,6 +6,7 @@ def AES_GCM(data, aad):
     aesgcm = AESGCM(key)
     nonce = os.urandom(12)
     ct = aesgcm.encrypt(nonce, data, aad)
+    attacking_add = input("enter authenticated associated data to attack:")
     pt =aesgcm.decrypt(nonce, ct, aad)
     return ct, pt
 
