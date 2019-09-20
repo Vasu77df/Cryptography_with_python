@@ -3,7 +3,7 @@ from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives.ciphers import (
     Cipher, algorithms, modes
 )
-
+import time
 def encrypt(key, pt, aad):
     '''AES in GCM Mode encrytion function
         parameters:
@@ -48,20 +48,30 @@ def decrypt(key, aad, iv, ct, tag):
     return decryptor.update(ct) + decryptor.finalize()
 
 if __name__ == "__main__":
-    plaintext = b'Hello World!'
-    plaintext_str = plaintext.decode('utf-8')
+    plaintext = bytes(64*1000*1000)
     aad = b"Data that is authenticated but not encrypted" # authenticated associated data
     aad_str = aad.decode("utf-8")
-    key = os.urandom(32) # 128 bit key generation for AES 
-    iv, ciphertext, tag = encrypt(key, plaintext, aad) 
-    # the initialization vector, cipher text and MAC tag 
-    # is returned after encryption 
-    attacking_tag = bytes(16) # adversary entering an different MAC tag of 0s of 16 bytes
-    decryted_msg = decrypt(key, aad, iv, ciphertext, attacking_tag) # decrypt function will raise a InvalidTag EXCEPTION as the tags do not match
-    print("InvalidTag! The MAC tags of encryption and decryption donot match")    
-    print("AES in GCM mode of plaintext: {}".format(plaintext_str))
-    print("Authenticated Associated data: {}".format(aad_str))
-    print("Initialization Vector: {}".format(iv.hex()))
-    print("MAC tag: {}".format(tag.hex()))
-    print("Ciphertext: {}".format(ciphertext.hex())) 
-    print("Decrypted message: {}".format(decryted_msg.decode('utf-8')))
+    encrypt_start = time.time()
+    for i in  range(0, 10): # doing 10 iterations of encryption
+        key = os.urandom(32) # 128 bit key generation for AES 
+        iv, ciphertext, tag = encrypt(key, plaintext, aad)
+        # the initialization vector, cipher text and MAC tag 
+        # is returned after encryption
+    encrypt_end = time.time()
+    encrypt_elapsed_time = encrypt_end - encrypt_start
+    avg_encrypt_elapsed_time = encrypt_elapsed_time/10
+    encrypt_perf = 64/avg_encrypt_elapsed_time
+    decrypt_start = time.time()
+    for i in range(0, 10): # doing 10 iterations of decryption
+        decryted_msg = decrypt(key, aad, iv, ciphertext, tag)
+    decrypt_end = time.time()
+    decrypt_elapsed_time = decrypt_end - decrypt_start
+    avg_decrypt_elapsed_time = decrypt_elapsed_time/10
+    decrypt_perf = 64/avg_decrypt_elapsed_time
+    print("AES in GCM mode of 64MB 0x0")
+    print("Elapsed time for encryption of 64MB 0x0: {} sec".format(round(avg_encrypt_elapsed_time, 4)))
+    print("Performance of Encryption is: {} MB/s".format(round(encrypt_perf, 4)))
+    print("Elapsed time for decryption of 64MB 0x0: {} sec".format(round(avg_decrypt_elapsed_time, 4)))
+    print("Performance of Decryption is: {} MB/s".format(round(decrypt_perf, 4)))
+   
+  
