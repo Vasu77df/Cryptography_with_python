@@ -12,6 +12,7 @@ def AES_GCM(data, aad):
 
 if __name__ == "__main__":
     data = b"Hello World!"
+    data_hex = data.hex()
     aad = b"authenticated but unencrypted data"
     encrypted_msg, decryted_msg = AES_GCM(data, aad)
     print(encrypted_msg.hex())
