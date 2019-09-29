@@ -20,7 +20,7 @@ def SHA_512(message):
     return msg_digest
 
 if __name__ == "__main__":
-    byte_plaintext = bytes(256*1000*100)
+    byte_plaintext = bytes(256*1000*1000 -33)
     digest = SHA_512(byte_plaintext) 
     digest_hex = digest.hex() # Converting the digest returned in bytes format to hexadecimal format 
     print("SHA 512 of 256MB 0x00")

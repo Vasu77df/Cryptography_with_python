@@ -12,7 +12,7 @@ if __name__ == "__main__":
     encryptor = cipher.encryptor()
     # the buffer needs to be at leasr lenght of data + n - 1 where n is cipher/mode block size in bytes
     buf = bytearray(64000160)
-    plaintext = bytes(64*1000*1000)
+    plaintext = bytes(64*1000*1000) 
     en_start = time.time()
     len_encrypted = encryptor.update_into(plaintext, buf)
     ciphertext = bytes(buf[:len_encrypted]) + encryptor.finalize()
