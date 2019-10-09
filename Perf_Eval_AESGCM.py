@@ -48,7 +48,7 @@ def decrypt(key, aad, iv, ct, tag):
     return decryptor.update(ct) + decryptor.finalize()
 
 if __name__ == "__main__":
-    plaintext = bytes(64*1000*1000 - 33)
+    plaintext = bytes(64*1000*1000 - 33) # minus 33 to remove byte function overhead
     aad = b"Data that is authenticated but not encrypted" # authenticated associated data
     aad_str = aad.decode("utf-8")
     encrypt_start = time.time()
