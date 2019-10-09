@@ -20,7 +20,7 @@ def encrypt(key, pt, aad):
         backend=default_backend()
     ).encryptor() # creating a AESGCM cipher object 
 
-    encryptor.authenticate_additional_data(aad) # authenticated associate data will be authenticated but not encrypted
+    encryptor.authenticate_additional_data(aad) # authenticated additional data will be authenticated but not encrypted
     ct = encryptor.update(pt) + encryptor.finalize() # getting cipher text after encryption
 
     return (iv, ct, encryptor.tag) 
@@ -58,7 +58,7 @@ if __name__ == "__main__":
     # is returned after encryption 
     decryted_msg = decrypt(key, aad, iv, ciphertext, tag)
     print("AES in GCM mode of plaintext: {}".format(plaintext_str))
-    print("Authenticated Associated data: {}".format(aad_str))
+    print("Additional Authenticated data: {}".format(aad_str))
     print("Initialization Vector: {}".format(iv.hex()))
     print("MAC tag: {}".format(tag.hex()))
     print("Ciphertext: {}".format(ciphertext.hex())) 
