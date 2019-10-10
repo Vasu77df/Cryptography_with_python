@@ -14,5 +14,5 @@ if __name__ == "__main__":
     digest = SHA_512(byte_plaintext) 
     digest_hex = digest.hex() # Converting the digest returned in bytes format to hexadecimal format 
     print ("Plaintext entered:{}".format(plaintext))
-    print("Expected Messsage Digest: \n 861844d6704e8573fec34d967e20bcfef3d424cf48be04e6dc08f2bd58c729743371015ead891cc3cf1c9d34b49264b510751b1ff9e537937bc46b5d6ff4ecc8")
+    print("Expected Messsage Digest: \n f6cde2a0f819314cdde55fc227d8d7dae3d28cc556222a0a8ad66d91ccad4aad6094f517a2182360c9aacf6a3dc323162cb6fd8cdffedb0fe038f55e85ffb5b6")
     print("Computed Message digest after SHA512 hashing:\n {} ".format(digest_hex))
